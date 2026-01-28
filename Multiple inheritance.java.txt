@@ -1,0 +1,54 @@
+interface Refuelable {
+    void refuel(int liters);
+}
+
+
+interface Rechargeable {
+    void recharge(int kWh);
+}
+class GasolineEngine implements Refuelable {
+    @Override
+    public void refuel(int liters) {
+        System.out.println("Refueling with " + liters + " liters of gasoline.");
+    }
+}
+class ElectricMotor implements Rechargeable {
+    @Override
+    public void recharge(int kWh) {
+        System.out.println("Recharging with " + kWh + " kWh of electricity.");
+    }
+}
+class HybridCar implements Refuelable, Rechargeable {
+
+
+    private GasolineEngine gasolineEngine;
+    private ElectricMotor electricMotor;
+
+
+    public HybridCar() {
+        gasolineEngine = new GasolineEngine();
+        electricMotor = new ElectricMotor();
+    }
+
+
+    @Override
+    public void refuel(int liters) {
+        gasolineEngine.refuel(liters);
+    }
+
+
+    @Override
+    public void recharge(int kWh) {
+        electricMotor.recharge(kWh);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        HybridCar car = new HybridCar();
+
+
+        car.refuel(40);
+        car.recharge(25);
+    }
+}
+
