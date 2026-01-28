@@ -1,0 +1,23 @@
+class DownloadTask extends Thread {
+    private String fileName;
+    DownloadTask(String name) { this.fileName = name; }
+
+
+    public void run() {
+        for (int i = 1; i <= 3; i++) {
+            System.out.println(fileName + " progress: " + (i * 33) + "%");
+            try { Thread.sleep(500); } catch (InterruptedException e) {}
+        }
+        System.out.println(fileName + " Download Complete!");
+    }
+}
+
+
+public class IDM {
+    public static void main(String[] args) {
+        new DownloadTask("File A").start();
+        new DownloadTask("File B").start();
+        new DownloadTask("File C").start();
+    }
+}
+
