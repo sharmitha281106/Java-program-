@@ -1,0 +1,14 @@
+class SavingsAccount  {
+    public double calculateInterest(double balance) {
+        return balance * 0.04; // 4% Interest
+    }
+}
+
+
+public class BankApp {
+    public static void main(String[] args) {
+        SavingsAccount sa = new SavingsAccount();
+        System.out.println("Monthly Interest: $" + sa.calculateInterest(5000));
+    }
+}
+
